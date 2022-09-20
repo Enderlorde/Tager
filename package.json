@@ -1,0 +1,22 @@
+{
+  "name": "epicproject",
+  "version": "1.0.0",
+  "description": "project manager",
+  "main": "index.js",
+  "scripts": {
+    "build": "webpack --config ./src/webpack.common.js",
+    "dev": "webpack --config ./src/webpack.dev.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "enderlorde",
+  "license": "ISC",
+  "devDependencies": {
+    "@babel/core": "^7.19.1",
+    "@babel/preset-react": "^7.18.6",
+    "webpack": "^5.74.0"
+  },
+  "dependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  }
+}
