@@ -1,0 +1,112 @@
+$base-color: #141522
+$font-color: #ffffff
+
+@font-face 
+    font-family: 'PlusJakartaSans'
+    src: url('../../../static/fonts/Plus_Jakarta_Sans/PlusJakartaSans-VariableFont_wght.ttf')
+
+.helper
+    position: relative
+
+    display: flex
+    flex-direction: column
+    align-items: center
+
+    margin-top: 30px
+
+    width: 74%
+    background-color: $base-color
+
+    border-radius: 10px
+
+    color: $font-color
+    font-family: 'PlusJakartaSans', serif
+
+
+    &__icon
+        position: absolute
+        display: flex
+        justify-content: center
+        align-items: center
+
+        transform: translateY(-50%)
+
+        width: 52px
+        height: 52px
+
+        z-index: 1
+
+        border-radius: 50%
+        border: 4px solid $font-color
+        
+        background-color: $base-color
+
+        box-shadow: 0px 2px 20px #7579c9, 0px -2px 20px #afafaf,
+
+        font-style: normal
+        font-weight: 700
+        font-size: 28px
+
+    &__content
+        display: flex
+        flex-direction: column
+        align-items: center
+
+        position: relative
+
+        padding: 70px 16px 0px 16px
+        
+        overflow: hidden
+
+        &::before, &::after
+            content: ""
+            
+            display: block
+            position: absolute
+
+            width: 160px
+            height: 160px
+
+            border-radius: 50%
+
+            background-color: rgba(255, 255, 255, 0.08)
+
+        &::before
+            top: 0
+            left: 0
+            transform: translate(-50%, -50%)
+
+        &::after
+            right: 0
+            bottom: 0
+            transform: translate(+50%, +50%)
+            
+        
+        h3
+            margin-bottom: 20px
+
+        p
+            margin-bottom: 45px
+
+            font-style: normal
+            font-weight: 500
+            font-size: 12px
+            line-height: 15px
+            text-align: center
+            
+        button
+            padding: 12px 24px
+
+            margin-bottom: 18px
+
+            border-radius: 10px
+            border: 0
+
+            font-family: 'PlusJakartaSans', serif
+            font-style: normal
+            font-weight: 600
+            font-size: 12px
+            line-height: 15px
+            text-transform: capitalize
+
+            cursor: pointer

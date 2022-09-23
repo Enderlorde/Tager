@@ -39,10 +39,9 @@ module.exports = {
             },
             {
                 test: /\.png$/,
-                loader: 'file-loader',
-                options: {
-                    name: '[path][name].[ext]',
-                    outputPath: 'images'
+                type: 'asset/resource',
+                generator: {
+                    filename: 'images/[hash][ext]'
                 }
             },
             {
@@ -51,10 +50,9 @@ module.exports = {
             },
             {
                 test: /\.ttf$/,
-                loader: 'file-loader',
-                options: {
-                    name: '[path][name].[ext]',
-                    outputPath: 'fonts',
+                type: 'asset/resource',
+                generator: {
+                    filename: 'fonts/[hash][ext]'
                 }
             },
         ]

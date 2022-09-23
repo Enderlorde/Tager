@@ -1,11 +1,11 @@
 $base-color: transparent
+$active-color: #F5F5F7
 $font-color: #141522
 $inactive-font-color: #8E92BC
 
 @font-face 
-    font-family: PlusJakartaSans
-    src: url("../../../static/fonts/Plus_Jakarta_Sans/PlusJakartaSans-VariableFont_wght.ttf")
-
+    font-family: 'PlusJakartaSans'
+    src: url('../../../static/fonts/Plus_Jakarta_Sans/PlusJakartaSans-VariableFont_wght.ttf')
 
 .navigation
     display: flex
@@ -19,17 +19,43 @@ $inactive-font-color: #8E92BC
         display: flex
         flex-direction: column
         justify-content: space-between
-        align-items: center
+        gap: 24px
 
         list-style: none
 
-        a
-            color: $inactive-font-color
-            text-transform: uppercase
-            text-decoration: none
-            font-family: PlusJakartaSans, serif
+        li
+            display: flex
+            flex-direction: row-reverse //элементы расположенны в обратном порядке, переворчаиваем строку
+            justify-content: flex-end //позиционируемся от конца блока, т.к. строка перевернута
+            align-items: center
 
-            &:hover, &.active
-                color: $font-color
-            
-            
+
+            padding: 10px 20px
+
+            &.active
+                background-color: $active-color
+                border-radius: 10px
+
+            path
+                stroke: $inactive-font-color
+
+            a
+                margin-left: 12px
+
+                color: $inactive-font-color
+                text-transform: capitalize
+                text-decoration: none
+                font-family: 'PlusJakartaSans' , serif
+                font-style: normal
+                font-weight: 600
+                font-size: 14px
+
+                user-select: none
+
+                &:hover, &.active
+                    color: $font-color
+
+                    + svg
+                        path
+                            stroke: $font-color
+                
