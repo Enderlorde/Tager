@@ -1,0 +1,35 @@
+$base-color: transparent
+$font-color: #141522
+$inactive-font-color: #8E92BC
+
+@font-face 
+    font-family: PlusJakartaSans
+    src: url("../../../static/fonts/Plus_Jakarta_Sans/PlusJakartaSans-VariableFont_wght.ttf")
+
+
+.navigation
+    display: flex
+    flex-direction: column
+    justify-content: space-between
+    align-items: center
+    
+    background-color: $base-color
+
+    &__menu
+        display: flex
+        flex-direction: column
+        justify-content: space-between
+        align-items: center
+
+        list-style: none
+
+        a
+            color: $inactive-font-color
+            text-transform: uppercase
+            text-decoration: none
+            font-family: PlusJakartaSans, serif
+
+            &:hover, &.active
+                color: $font-color
+            
+            
