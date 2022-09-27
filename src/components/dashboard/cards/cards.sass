@@ -1,4 +1,14 @@
 .card
+    &__avatar
+        display: block
+
+        width: 48px
+        height: 48px
+
+        border-radius: 50%
+
+        object-fit: contain
+
     &__row
         display: flex
         justify-content: space-between
@@ -6,10 +16,26 @@
 
     &__likes
         display: flex
-        
-        gap: 10px
 
         list-style: none
+
+        img
+            position: absolute
+            display: block
+
+            width: 24px
+            height: 24px
+
+            transform: translateX(-15%)
+
+            border: 1.5px solid #FFFFFF
+
+            border-radius: 50%
+
+            object-fit: contain
+        
+
+
 
 .progress
     &__header

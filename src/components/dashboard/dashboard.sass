@@ -25,10 +25,14 @@ $font-accent-color:#54577A
 .row
     display: flex 
     justify-content: space-between
+    align-items: center
     
     margin-bottom: 40px
 
     width: 100%
+
+    &_centered
+        justify-content: center
 
     &__hi
         font-style: normal
@@ -102,22 +106,93 @@ $font-accent-color:#54577A
         font-size: 32px
 
         letter-spacing: -0.03em
-       
+
 .meter
     display: flex
     justify-content: space-evenly
     align-items: center
 
-    &__round
+    &__course
+        margin-left: 20px
+
+        font-style: normal
+        font-weight: 500
+        font-size: 14px
+        letter-spacing: -0.02em
+        color: #8E92BC
+
+        span
+            font-style: normal
+            font-weight: 600
+            font-size: 20px
+            letter-spacing: -0.02em
+            color: #ffffff
+
+.activity
+    display: flex
+    flex-direction: column
+
+    padding: 20px
+
+    background-color: #F5F5F7
+
+    border-radius: 10px
+
+    &__header
         display: flex
-        justify-content: center
+        justify-content: space-between
         align-items: center
 
-        position: relative
+        margin-bottom: 20px
 
-        width: 66px
-        height: 66px
+        select
+            border: 0
 
-        z-index: 2
+            background-color: transparent
 
-        border-radius: 50%
+            font-family: PlusJakartaSans, arial
+            font-style: normal
+            font-weight: 500
+            font-size: 12px
+            letter-spacing: -0.02em
+            color: #141522
+    
+    &__content
+        border-radius: 10px
+
+        background-color: #fff
+    
+
+.custom-tooltip
+    display: flex
+    justify-content: center
+    align-items: center
+
+    position: relative
+
+    padding: 10px 20px
+
+    transform: translate(calc(-50% - 10px), -200%)
+
+    color: #ffffff
+
+    background-color: #141522
+    outline: 0
+    border: 0
+    border-radius: 10px
+
+    &::after
+        content: ""
+        
+        position: absolute
+
+        bottom: -13px
+
+        display: block
+
+        width: 0
+        height: 0
+
+        border-top: 14px solid #141522
+        border-left: 14px solid transparent
+        border-right: 14px solid transparent

@@ -1,21 +1,69 @@
-import React from 'react';
+import React, { useState, useRef } from 'react';
 
 import Today from './today/today.jsx';
 import Slider from './slider/slider.jsx';
 import {Mentor as MentorCard, Task as TaskCard} from './cards/cards.jsx';
-import {RadialBarChart, RadialBar, PolarAngleAxis} from 'recharts';
+import {RadialBarChart, RadialBar, PolarAngleAxis, LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip} from 'recharts';
 
 import NotificationIcon from '../../static/images/action/notification_icon.svg';
 
 import './dashboard.sass';
 
 const Dashboard =  () => {
+    const [tooltipPos,setTooltipPos] = useState(0);
+    const tooltipRef = useRef();
+
     const data = [
         {
             name: 'a',
             uv: 45,
             pv: 100,
             fill: '#546FFF'
+        }
+      ]
+
+      const lcData = [
+        {
+          "name": "S",
+          "uv": 1,
+          "pv": 2400,
+          "amt": 2400
+        },
+        {
+          "name": "M",
+          "uv": 2,
+          "pv": 1398,
+          "amt": 2210
+        },
+        {
+          "name": "T",
+          "uv": 1,
+          "pv": 9800,
+          "amt": 2290
+        },
+        {
+          "name": "W",
+          "uv": 3,
+          "pv": 3908,
+          "amt": 2000
+        },
+        {
+          "name": "T",
+          "uv": 2,
+          "pv": 4800,
+          "amt": 2181
+        },
+        {
+          "name": "F",
+          "uv": 3,
+          "pv": 3800,
+          "amt": 2500
+        },
+        {
+          "name": "S",
+          "uv": 2,
+          "pv": 4300,
+          "amt": 2100
         }
       ]
 
@@ -146,6 +194,22 @@ const Dashboard =  () => {
         return collection
     }
 
+    const CustomTooltip = ({ active, payload, label }) => {
+        if (active && payload && payload.length) {
+            return (
+                <div className="custom-tooltip">
+                <p className="label">{`${payload[0].value} Task`}</p>
+                </div>
+            );
+        }
+      
+        return null;
+    };
+
+    const getLineChartPos = () => {
+        return(document.querySelector(".activity__content").getBoundingClientRect());
+    }
+
     return(
         <div className="dashboard">
             <div className="dashboard__wrapper">
@@ -163,7 +227,7 @@ const Dashboard =  () => {
                     </div>
                 </div>
                 
-                <div className="wrapper__row row">
+                <div className="wrapper__row row row_centered">
                     <div className="row__patient patient">
                         <div className="patient__title">Running task</div>
 
@@ -171,10 +235,10 @@ const Dashboard =  () => {
 
                         <div className="patient__meter meter">
                             <RadialBarChart 
-                                width={68}
-                                height={68}
-                                innerRadius={31}
-                                outerRadius={34}
+                                width={76}
+                                height={76}
+                                innerRadius={34}
+                                outerRadius={38}
                                 data={data}
                                 startAngle={450}
                                 endAngle={90}
@@ -182,17 +246,30 @@ const Dashboard =  () => {
                             >
                                                            
                                 <RadialBar 
-                                  background 
+                                  background={{fill: '#000000'}}
                                   dataKey='uv'
                                   angleAxisId={0}
                                   data={data}
                                 />
+                                <text
+                                    x={38}
+                                    y={38}
+                                    textAnchor="middle"
+                                    dominantBaseline="middle"
+                                    className="meter__label"
+                                    fontSize={18}
+                                    fontStyle="normal"
+                                    fontWeight="500"
+                                    fill="#ffffff"
+                                >
+                                    45%
+                                </text>
 
                                 <PolarAngleAxis type="number" domain={[0, 100]} angleAxisId={0} tick={false} />
 
                             </RadialBarChart>
 
-                            <div className="meter__info">
+                            <div className="meter__course">
                             <span>100</span> <br/>
                             Task
                         </div>                  
@@ -215,6 +292,93 @@ const Dashboard =  () => {
                                 <option value="yh">This Year</option>
                             </select>
                         </div>
+
+                        <LineChart 
+                            width={422}
+                            height={130}
+                            className="activity__content"
+                            data={lcData}
+                            margin={{
+                                left: 16,
+                                top: 16,
+                                right: 16,
+                                bottom: 16 
+                            }}
+                        > 
+                            <XAxis 
+                                dataKey="name"
+                                axisLine={false}
+                                tick={{
+                                    fill: "#141522"
+                                }}
+                                fontSize={12}
+                            />
+
+                            <YAxis
+                                type="number"
+                                tickCount={3}
+                                domain={[1,3]}
+                                allowDecimals={false}
+                                tickLine={false}
+                                tick={{
+                                    fill: "#141522"
+                                }}
+                                axisLine={false}
+                                padding={{
+                                    top: 10,
+                                    bottom: 0
+                                }}
+                                width={20}
+                                fontSize={12}
+                                textAnchor="middle"
+                            />
+                            
+                            <Tooltip 
+                                wrapperStyle={{
+                                    outline: "none",
+                                    display: "none"
+                                }}
+                                ref={tooltipRef}
+                                content={<CustomTooltip />}
+                                allowEscapeViewBox={{
+                                    x:true,
+                                    y:true
+                                }}
+                                isAnimationActive={false}
+                            />
+                            
+                            <CartesianGrid 
+                                horizontal={false} 
+                            /> 
+
+                            <Line
+                                cursor="none"
+                                type="monotone"
+                                dataKey="uv"
+                                stroke="#141522"
+                                strokeWidth={3}
+                                dot={false}
+                                activeDot={{
+                                    stroke: "#546FFF",
+                                    strokeWidth: 4,
+                                    r: 8,
+                                    fill: "#ffffff",
+                                    style: {
+                                        cursor: "pointer"
+                                    },
+                                    onMouseOver: () => {
+                                       tooltipRef.current.wrapperNode.style.display = "block"
+                                    },
+                                    onMouseOut: () => {
+                                        tooltipRef.current.wrapperNode.style.display = "none"
+                                     },
+                                }}
+                                style={{
+                                    filter: "drop-shadow( 0px 24px 0px rgba(0, 0, 0, .2))"
+                                }}
+                            />
+
+                        </LineChart>
                     </div>
                 </div>
 

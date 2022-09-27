@@ -6,9 +6,7 @@ export const Mentor = (props) => {
     return (
         <div className="card">
             <div className="card__row">
-                <div className="card__avatar">
-                    <img src={props.avatar} alt=""/>
-                </div>
+                <img className="card__avatar" src={props.avatar} alt=""/>
 
                 <div className="card__info">
                     <h4>{props.name}</h4>
