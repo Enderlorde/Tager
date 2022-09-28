@@ -1,13 +1,59 @@
-.slider
-    &__header
+.slider 
+    margin-bottom: 32px
+
+    &__content
+        overflow: hidden
+
+        .content__wrapper
+            display: flex
+            justify-content: space-evenly
+            align-items: center
+
+            list-style: none
+
+            gap: 32px
+
+            width: 100%
+
+            .content__slide
+                width: 50% 
+                transition: all 1s ease-in-out
+
+
+.header
+    display: flex
+    justify-content: space-between
+    align-items: center
+
+    margin-bottom: 20px
+
+    h3
+        text-transform: capitalize
+
+    &__controls
         display: flex
-        justify-content: space-between
+        justify-content: center
         align-items: center
 
-        h3
-            text-transform: capitalize
-    
-    &__content
-        display: flex
-        justify-content: space-evenly
-        align-items: center
+        gap: 10px
+
+        button
+            background-color: transparent
+
+            border: 0
+
+            cursor: pointer
+
+            path
+                stroke: #54577A
+
+            &:hover
+                path
+                    stroke: #000000
+
+            &:active
+                transform: translateY(-15%)
+        
+
+.mirrored_y
+    transform: scale(-1)

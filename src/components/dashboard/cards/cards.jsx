@@ -1,29 +1,36 @@
 import React from 'react';
 
+import ClockIcon from './images/clock_icon.svg';
+import TaskIcon from './images/note_icon.svg';
+import StarIcon from './images/star_icon.svg';
+import Progress from './progress/progress.jsx';
+
 import './cards.sass';
 
 export const Mentor = (props) => {
     return (
         <div className="card">
             <div className="card__row">
-                <img className="card__avatar" src={props.avatar} alt=""/>
+                <div className="card__mentor mentor">
+                    <img className="mentor__avatar" src={props.avatar} alt="mentor's avatar"/>
 
-                <div className="card__info">
-                    <h4>{props.name}</h4>
+                    <div className="mentor__info">
+                        <h4>{props.name}</h4>
 
-                    <p>{props.occupation}</p>
+                        <p>{props.occupation}</p>
+                    </div>
                 </div>
-
-                <button>+follow</button>
+                
+                <button className="card__follow">+ follow</button>
             </div>
 
             <div className="card__row">
-                <div className="card__task-tracker">
-                    {props.tasks} Task
+                <div className="card__task-tracker task-tracker">
+                    <TaskIcon className="task-tracker__icon"/> {props.tasks} Task
                 </div>
 
-                <div className="card__rating">
-                    {props.rating} ({props.reviews} reviews)
+                <div className="card__rating rating">
+                    <StarIcon className="rating__icon" /> {props.rating} ({props.reviews} reviews)
                 </div>
             </div>
         </div>
@@ -33,9 +40,7 @@ export const Mentor = (props) => {
 export const Task = (props) => {
     return (
         <div className="card">
-            <div className="card__illustration">
-                <img src={props.illustration} alt=""/>
-            </div>
+            <img className="card__illustration" src={props.illustration} alt=""/>
 
             <div className="card__info">
                 <h4>{props.title}</h4>
@@ -44,22 +49,16 @@ export const Task = (props) => {
             </div>
 
             <div className="card__progress progess">
-                <div className="progress__header">
-                    <h4>Progress</h4>
-
-                    <p>{props.progress}%</p>
-                </div>
-                
-                <progress value={props.progress} max="100"></progress>
+                <Progress max={100} value={props.progress} />
             </div>
 
             <div className="card__row">
-                <div className="card__timeout">
-                    {props.daysLeft} Days Left
+                <div className="card__timeout timeout">
+                    <ClockIcon className="timeout__icon"/> {props.daysLeft} Days Left
                 </div>
 
                 <ul className="card__likes">
-                    {props.followers.map((follower,index) => {
+                    {props.followers.filter((value, index) => index<=4).map((follower, index) => {
                         return <li key={index}>
                             <img src={follower} alt=""/>
                         </li>

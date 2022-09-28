@@ -86,6 +86,23 @@ const Dashboard =  () => {
                 accupation: '3D Design',
                 tasks: ['1', '3'],
                 rating: [5, 5, 5, 5, 3, 4],
+            },
+            {
+                id: 2,
+                avatar: 'https://via.placeholder.com/200',
+                name: 'Mr. Bean',
+                accupation: 'Game Designer',
+                tasks: ['1', '2', '3', '4'],
+                rating: [5, 2, 2, 3, 2, 4],
+            },
+
+            {
+                id: 3,
+                avatar: 'https://via.placeholder.com/200',
+                name: 'John Carmack',
+                accupation: 'God',
+                tasks: ['1', '3'],
+                rating: [5, 5, 5, 5, 3, 4],
             }
         ]
         
@@ -93,7 +110,6 @@ const Dashboard =  () => {
 
         const collection = mentors.map((data) => {
             return <Template 
-                key={data.id}
                 avatar={data.avatar}
                 name={data.name} 
                 occupation={data.accupation} 
@@ -162,13 +178,63 @@ const Dashboard =  () => {
                 expDate: new Date('Dec 20, 2022'),
                 followers: [1, 234, 8, 4, 231],
             },
+            {
+                id: 2,
+                illustration: 'https://via.placeholder.com/200',
+                title: 'Creating Mobile App Design',
+                theme: 'UI/UX Design',
+                steps: [
+                    {
+                        name: 'first',
+                        status: 'complete',
+                        isComplete: true,
+                    },
+                    {
+                        name: 'second',
+                        status: 'complete',
+                        isComplete: true,
+                    },
+                    {
+                        name: 'third',
+                        status: 'hold',
+                        isComplete: false,
+                    }
+                ],
+                expDate: new Date('Dec 25, 2022'),
+                followers: [1, 234, 4, 231],
+            },
+
+            {
+                id: 3,
+                illustration: 'https://via.placeholder.com/200',
+                title: 'Creating Perfect Website',
+                theme: 'Web Developer',
+                steps: [
+                    {
+                        name: 'first',
+                        status: 'complete',
+                        isComplete: true,
+                    },
+                    {
+                        name: 'second',
+                        status: 'incomplete',
+                        isComplete: false,
+                    },
+                    {
+                        name: 'third',
+                        status: 'ongoing',
+                        isComplete: false,
+                    }
+                ],
+                expDate: new Date('Dec 20, 2022'),
+                followers: [1, 234, 8, 4, 231],
+            },
         ]
         
         const Template = TaskCard;
 
         const collection = tasks.map((data) => {
             return <Template
-                key={data.id}
                 illustration={data.illustration}
                 title={data.title}
                 theme={data.theme}
