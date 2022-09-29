@@ -6,11 +6,15 @@ import Helper from './helper/helper.jsx';
 
 import './sidemenu.sass';
 
-const Sidemenu =  () => {
+const Sidemenu = (props) => {
     return(
-        <div className="sidemenu">
-            <Logo />
-            <Navigation />
+        <div className={`sidemenu ${props.className}`}>
+            <div>
+                <Logo className="sidemenu__logo"/>
+
+                <Navigation />
+            </div>
+            
             <Helper />
         </div>
     )

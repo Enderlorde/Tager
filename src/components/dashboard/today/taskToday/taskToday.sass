@@ -1,0 +1,120 @@
+@font-face 
+    font-family: 'PlusJakartaSans'
+    src: url('../../../../static/fonts/Plus_Jakarta_Sans/PlusJakartaSans-VariableFont_wght.ttf')
+    
+.taskToday
+    background-color: #fff
+
+    border-radius: 10px
+
+    padding: 24px
+
+    &__header
+        display: flex
+        justify-content: space-between
+        align-items: center
+
+        margin-bottom: 20px
+
+        font-family: PlusJakartaSans, arial
+        font-style: normal
+        font-weight: 600
+        font-size: 14px
+        letter-spacing: -0.02em
+        color: #141522
+
+
+        button
+            background-color: transparent
+
+            border: 0
+
+            cursor: pointer
+
+    &__card
+        padding: 0
+
+        img
+            height: 160px
+
+    hr
+        border: 1px solid #F5F5F7
+        
+        margin-bottom: 32px
+        
+    .detail
+        display: flex
+        flex-direction: column
+
+        &__header
+            display: flex
+            justify-content: space-between
+            align-items: center
+
+            margin-bottom: 20px
+
+        &__theme
+            font-family: 'PlusJakartaSans'
+            font-style: normal
+            font-weight: 500
+            font-size: 12px
+            letter-spacing: -0.02em
+            color: #54577A
+
+        &__content
+            display: flex
+            flex-direction: column
+            gap: 20px
+
+            list-style: none
+
+            margin-bottom: 56px
+
+            .task
+                display: flex
+                align-items: center
+                gap: 12px
+
+                font-family: 'PlusJakartaSans'
+                font-style: normal
+                font-weight: 500
+                font-size: 14px
+                letter-spacing: -0.02em
+                color: #141522
+
+                &__number
+                    display: flex
+                    justify-content: center
+                    align-items: center
+
+                    flex: none
+
+                    width: 36px
+                    height: 36px
+
+                    background-color: #F5F5F7
+
+                    border-radius: 10px
+
+        &__spoiler
+            display: flex
+            justify-content: center
+            align-items: center
+
+            padding: 12px
+
+            width: 100%
+
+            font-family: 'PlusJakartaSans'
+            font-style: normal
+            font-weight: 600
+            font-size: 14px
+            letter-spacing: -0.02em
+            color: #ffffff
+
+            border: 0
+            border-radius: 10px
+
+            background-color: #546FFF
+
+            cursor: pointer

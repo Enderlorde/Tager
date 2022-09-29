@@ -7,11 +7,11 @@ import './slider.sass';
 //TODO: вынести в отдельный модуль
 const clamp = (value, min, max) => {
     if (value>max) {
-        value -= max;
+        value = min + (value - max) - 1;
         return value>max?clamp(value,min,max):value;
     }
     if (value<min) {
-        value = max - (min - value);
+        value = max - (min - value) + 1 ;
         return value<min?clamp(value,min,max):value;
     }   
     return value
@@ -38,7 +38,7 @@ const Slider = (props) => {
         
         //состояние не успевает обновится и buldView получает старое значение, потому создаем временную переменную
         let tempIndex = direction=="next"?currentIndex+1:currentIndex-1;
-        setCurrentIndex(tempIndex);
+        setCurrentIndex(clamp(tempIndex, 0, collection.length - 1));
         const temparr = buildView(collection, tempIndex);
         setCurrentView([...temparr]);
     }

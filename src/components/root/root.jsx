@@ -16,7 +16,7 @@ const Root = () => {
 
     return(
         <div className="root">
-            <Sidemenu />
+            <Sidemenu className="root__sidemenu" />
             {showDashboard()}
         </div>
     )

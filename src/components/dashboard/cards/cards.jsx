@@ -9,7 +9,7 @@ import './cards.sass';
 
 export const Mentor = (props) => {
     return (
-        <div className="card">
+        <div className={`card ${props.className}`}>
             <div className="card__row">
                 <div className="card__mentor mentor">
                     <img className="mentor__avatar" src={props.avatar} alt="mentor's avatar"/>
@@ -39,7 +39,7 @@ export const Mentor = (props) => {
 
 export const Task = (props) => {
     return (
-        <div className="card">
+        <div className={`card ${props.className}`}>
             <img className="card__illustration" src={props.illustration} alt=""/>
 
             <div className="card__info">

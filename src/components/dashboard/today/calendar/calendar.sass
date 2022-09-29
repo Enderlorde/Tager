@@ -1,0 +1,112 @@
+@font-face 
+    font-family: 'PlusJakartaSans'
+    src: url('../../../../static/fonts/Plus_Jakarta_Sans/PlusJakartaSans-VariableFont_wght.ttf')
+
+.calendar
+    display: flex
+    flex-direction: column
+
+    padding: 32px
+
+    border-radius: 10px
+
+    background-color: #FFFFFF
+
+    font-family: PlusJakartaSans, arial
+    font-style: normal
+    font-weight: 600
+    font-size: 14px
+    color: #141522
+
+    overflow: hidden
+
+
+    &__header
+        display: flex
+        justify-content: space-between
+
+        margin-bottom: 30px
+
+        text-transform: capitalize
+
+        .navigation
+            border: 0
+
+            background-color: transparent
+
+            cursor: pointer
+
+            &_left
+                transform: scale(-1)
+        
+
+    &__week
+        display: flex
+        justify-content: space-between
+        align-items: center
+
+        list-style: none
+
+        .day
+            display: flex
+            flex-direction: column
+            align-items: center
+            
+            padding: 6px
+
+            width: 40px
+
+            border-radius: 20px
+
+            animation-duration: 3s
+            animation-name: slidein
+    
+            &_active
+                color: #ffffff
+
+                background-color: #141522
+
+            &_hide
+                color:  #a1a4ba
+
+            &__name,&__date
+                display: flex
+                justify-content: center
+
+                width: 32px
+                height: 32px
+
+                border-radius: 50%
+            
+            &__date
+                align-items: center
+
+                background-color: #F5F5F7
+
+            &_active
+                .day__date
+                    background-color: #546FFF
+
+@keyframes slideToLeft
+    0%
+        transform: translateX(0)
+
+    50% 
+        transform: translateX(-500px)
+    51% 
+        transform: translateX(500px)
+
+    100%
+        transform: translateX(0)
+
+@keyframes slideToRight
+    0%
+        transform: translateX(0)
+
+    50% 
+        transform: translateX(500px)
+    51% 
+        transform: translateX(-500px)
+
+    100%
+        transform: translateX(0)
