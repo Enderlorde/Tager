@@ -1,0 +1,46 @@
+.activity
+    display: flex
+    flex-direction: column
+
+    padding: 20px
+
+    background-color: #F5F5F7
+
+    border-radius: 10px
+
+    &_header
+        margin-bottom: 20px
+
+.custom-tooltip
+    display: flex
+    justify-content: center
+    align-items: center
+
+    position: relative
+
+    padding: 10px 20px
+
+    transform: translate(calc(-50% - 10px), -200%)
+
+    color: #ffffff
+
+    background-color: #141522
+    outline: 0
+    border: 0
+    border-radius: 10px
+
+    &::after
+        content: ""
+        
+        position: absolute
+
+        bottom: -13px
+
+        display: block
+
+        width: 0
+        height: 0
+
+        border-top: 14px solid #141522
+        border-left: 14px solid transparent
+        border-right: 14px solid transparent

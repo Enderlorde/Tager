@@ -1,59 +1,38 @@
 .slider 
-    margin-bottom: 32px
+    &__header
+        margin-bottom: 20px
 
-    &__content
-        overflow: hidden
-
-        .content__wrapper
-            display: flex
-            justify-content: space-evenly
-            align-items: center
-
-            list-style: none
-
-            gap: 32px
-
-            width: 100%
-
-            .content__slide
-                width: 50% 
-                transition: all 1s ease-in-out
-
-
-.header
+.slides
     display: flex
-    justify-content: space-between
+    justify-content: space-evenly
     align-items: center
 
-    margin-bottom: 20px
+    list-style: none
 
-    h3
-        text-transform: capitalize
+    gap: 32px
 
-    &__controls
-        display: flex
-        justify-content: center
-        align-items: center
+    width: 100%
 
-        gap: 10px
-
-        button
-            background-color: transparent
-
-            border: 0
-
-            cursor: pointer
-
-            path
-                stroke: #54577A
-
-            &:hover
-                path
-                    stroke: #000000
-
-            &:active
-                transform: translateY(-15%)
+    &__slide
+        width: 50% 
         
+        &_animate
+            animation-duration: 2s
+            animation-name: flipAround
 
-.mirrored_y
-    transform: scale(-1)
+@keyframes flipAround
+    0%
+        transform: rotate(0)
+
+    5%
+        filter: brightness(1)
+
+    50% 
+        transform: rotateY(-180deg)
+        filter: brightness(100)
+
+    70%
+        filter: brightness(1)
+
+    100%
+        transform: rotate(0)

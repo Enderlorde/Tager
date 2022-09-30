@@ -1,6 +1,8 @@
-import React, { useState, useRef } from 'react';
+import React, { useState, useEffect } from 'react';
 
 import ArrowIcon from "./images/arrow_icon.svg";
+import Header from '../../common/header/header.jsx';
+
 
 import './slider.sass';
 
@@ -20,9 +22,8 @@ const clamp = (value, min, max) => {
 const Slider = (props) => {
     const collection = props.collection;
 
-    const contentWrapperRef = useRef();
-
     const buildView = (collection, index) => {
+        //Функция собирает контент для двух слайдов в массив
         return (
             [
                 collection[clamp(index, 0, collection.length-1)],
@@ -33,37 +34,47 @@ const Slider = (props) => {
 
     const [currentIndex, setCurrentIndex] = useState(0);
     const [currentView, setCurrentView] = useState(buildView(collection, currentIndex));
+    const [animate, setAnimate] = useState(false);
+
+    useEffect(() => {
+        //Вешаем задержку для удаления класса с анимацией
+        if (animate) window.setTimeout(() => setAnimate(false),2000);
+    }, [animate])
 
     const switchSlide = (direction) => {
-        
         //состояние не успевает обновится и buldView получает старое значение, потому создаем временную переменную
-        let tempIndex = direction=="next"?currentIndex+1:currentIndex-1;
+        let tempIndex = direction=="next"?currentIndex+2:currentIndex-2;
+        setAnimate(true);
         setCurrentIndex(clamp(tempIndex, 0, collection.length - 1));
         const temparr = buildView(collection, tempIndex);
-        setCurrentView([...temparr]);
+        window.setTimeout(() => setCurrentView([...temparr]),1000);
     }
 
     return (
-        <div className="slider">
-            <div className="slider__header header">
-                <h3>{props.title}</h3>
+        <div className={props.className?`slider ${props.className}`:`slider`}>
+            <Header title={props.title} className='slider__header' controls={
+                [
+                    {
+                        content: <ArrowIcon style={{transform: 'scaleX(-1)'}} onClick={() => switchSlide('prev')} />,
+                    },
+                    {
+                        content: <ArrowIcon onClick={() => switchSlide('next')} />,
+                    } 
+                ]
+            }/>
 
-                <div className="header__controls">
-                    <button>
-                        <ArrowIcon onClick={() => switchSlide('prev')} className="mirrored_y" />
-                    </button>
-
-                    <button>
-                        <ArrowIcon onClick={() => switchSlide('next')} />
-                    </button>
-                </div>
-            </div>
-
-            <div className="slider__content">
-                <ul className="content__wrapper" ref={contentWrapperRef}>
-                    {currentView.map((element,i) => <li className="content__slide" key={i}>{element}</li>)}
-                </ul>
-            </div>
+            <ul className="slider__slides slides">
+                {currentView.map((element,i) => {
+                    return (
+                        <li 
+                            className={animate?`slides__slide slides__slide_animate`:`slides__slide`} 
+                            key={i}
+                        >
+                            {element}
+                        </li>
+                    )
+                })}
+            </ul>
         </div>
     )
 }

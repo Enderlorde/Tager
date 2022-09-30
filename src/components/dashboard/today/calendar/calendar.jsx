@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
 import ArrowIcon from './images/arrow_icon.svg';
 
@@ -6,6 +6,14 @@ import './calendar.sass';
 
 const Calendar = () => {
     const [choosenDate, setChoosenDate] = useState(new Date());
+    const [animationDirection, setAnimationDirection] = useState('none');
+
+    useEffect(() => {
+        if (animationDirection != 'none')
+        {
+            window.setTimeout(() => setAnimationDirection('none'), 2000);
+        }
+    },[animationDirection])
 
     const monthLabels = ['january', 'february', 'march', 'april', 'may', 'june', 'july', 'august', 'september', 'october', 'november', 'december'];
 
@@ -32,24 +40,33 @@ const Calendar = () => {
         return week
     }
 
+    //TODO: вынести в отдельный модуль
+    const getAnimationClass = (direction, className) => {
+        if (direction == "left") return `${className}_left`
+        if (direction == "right") return `${className}_right`
+        return ''
+    }   
+
     return(
         <div className="calendar">
             <div className="calendar__header">
                 <button className="calendar__navigation navigation navigation_left" onClick={() => {
+                    setAnimationDirection('right');
                     const changedDate = new Date (choosenDate.valueOf() - 7*24*60*60*1000); 
-                    setChoosenDate(changedDate)
+                    window.setTimeout(() => setChoosenDate(changedDate), 1000);
                 }}> <ArrowIcon /> </button>
                 <div className="calendar__date">{`${monthLabels[choosenDate.getMonth()]} ${choosenDate.getFullYear()}`}</div>
                 <button className="calendar__navigation navigation navigation_right" onClick={() => {
+                    setAnimationDirection('left');
                     const changedDate = new Date (choosenDate.valueOf() + 7*24*60*60*1000); 
-                    setChoosenDate(changedDate)
+                    window.setTimeout(() => setChoosenDate(changedDate), 1000);
                 }}> <ArrowIcon /> </button> 
             </div>
 
             <ul className="calendar__week">
                 {getWeek(choosenDate).map((day,i) => {
                     return (
-                    <li key={i} className={`week__day day day_${day.active?"active":"inactive"} day_${day.hide?"hide":"visible"}`} >
+                    <li key={i} className={`week__day day day_animate ${getAnimationClass(animationDirection, "day_animate")} day_${day.active?"active":"inactive"} day_${day.hide?"hide":"visible"}`} >
                         <div className="day__name">
                             {day.weekday}
                         </div>

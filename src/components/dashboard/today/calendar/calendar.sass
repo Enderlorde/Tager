@@ -58,9 +58,15 @@
 
             border-radius: 20px
 
-            animation-duration: 3s
-            animation-name: slidein
-    
+            &_animate
+                animation-duration: 2s
+                
+                &_left
+                    animation-name: slideToLeft
+
+                &_right
+                    animation-name: slideToRight  
+
             &_active
                 color: #ffffff
 
