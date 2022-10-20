@@ -5,6 +5,7 @@ import Navigation from './navigation/navigation.jsx'; // импортируем 
 import Helper from './helper/helper.jsx';
 
 import './sidemenu.sass';
+import './sidemenu-mobile.sass';
 
 const Sidemenu = (props) => {
     return(

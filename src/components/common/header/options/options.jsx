@@ -5,9 +5,9 @@ import './options.sass';
 const Options = (props) => {
     return (
         <select name={props.name} className={props.className?`options ${props.className}`:`options`}>
-            {props.options.map((option) => {
+            {props.options.map((option, index) => {
                 return (
-                    <option value={option.value}>{option.description}</option>
+                    <option key={index} value={option.value}>{option.description}</option>
                 )
             })}
         </select>

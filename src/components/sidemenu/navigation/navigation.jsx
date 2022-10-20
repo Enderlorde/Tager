@@ -40,7 +40,7 @@ const Navigation = () => {
                 </li>
 
                 <li>
-                    <NavLink to="/tasks">tasks</NavLink>
+                    <NavLink to="/task">task</NavLink>
 
                     <TasksIcon />
                 </li>

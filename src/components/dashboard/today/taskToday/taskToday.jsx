@@ -1,6 +1,6 @@
 import React from 'react';
 
-import {Task as TaskCard} from '../../cards/cards.jsx';
+import {Task as TaskCard} from '../../../common/cards/cards.jsx';
 import DotsIcon from './images/dots_icon.svg';
 
 import './taskToday.sass';

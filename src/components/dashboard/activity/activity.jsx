@@ -23,20 +23,7 @@ const Activity = (props) => {
 
     return (
         <div className={props.className?`activity ${props.className}`:'activity'}>
-            {/*<div className="activity__header header">
-                <h4 className="header__title">{props.title}</h4>
-
-                <select className="header__options" name="date" id="dateSelect">
-                    <option value="day">Today</option>
-
-                    <option value="wk">This Week</option>
-
-                    <option value="mt">This Month</option>
-
-                    <option value="yh">This Year</option>
-                </select>
-    </div>*/}
-            <Header title="Activity" options={[
+            <Header small={true} title="Activity" options={[
                 {
                     value: 'td',
                     description: 'today'

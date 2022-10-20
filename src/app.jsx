@@ -8,7 +8,7 @@ import {
 import './app.sass';
 
 //импортируем компоненты страниц
-import Tasks from './components/tasks/tasks.jsx';
+import Task from './components/task/task.jsx';
 import Mentors from './components/mentors/mentors.jsx';
 import Message from './components/message/message.jsx';
 import Settings from './components/settings/settings.jsx';
@@ -27,8 +27,8 @@ const router = createBrowserRouter([
                 element: <Mentors />,
             },
             {
-                path: "tasks",
-                element: <Tasks />,
+                path: "task",
+                element: <Task />,
             },
             {
                 path: "message",

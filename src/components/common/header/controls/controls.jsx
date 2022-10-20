@@ -5,9 +5,9 @@ import './controls.sass';
 const Controls = (props) => {
     return (
         <div className={props.className?`controls ${props.className}`:`controls`}>
-            {props.elements.map((element) => {
+            {props.elements.map((element, index) => {
                 return (
-                    <button className='controls__element'>
+                    <button key={index} className='controls__element'>
                         {element.content}
                     </button>
                 )
