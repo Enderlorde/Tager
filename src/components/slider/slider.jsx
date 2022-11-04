@@ -67,6 +67,9 @@ const Slider = (props) => {
                     return (
                         <li 
                             className={animate?`slides__slide slides__slide_animate`:`slides__slide`} 
+                            style={{
+                                minWidth:`calc(calc(100% / ${props.size}) - 16px)` //вычисляем размер одного слайда с учетом отступов 32px между ними
+                            }}
                             key={i}
                         >
                             {element}
@@ -90,11 +93,8 @@ export const Slider2 = (props) => {
     }, [animate])
 
     const switchSlide = (direction) => {
-        //состояние не успевает обновится и buldView получает старое значение, потому создаем временную переменную
-        let tempIndex = direction=="next"?currentIndex-1:currentIndex+1;
-        //setAnimate(true);
+        let tempIndex = direction=="next"?currentIndex+1:currentIndex-1;
         setCurrentIndex(clamp(tempIndex, 0, collection.length - 1));
-        window.setTimeout(() => setCurrentView([...temparr]),1000);
     }
 
     return (
@@ -110,14 +110,16 @@ export const Slider2 = (props) => {
                 ]
             }/>
             <div style={{overflow:"hidden", width:'calc(100vw - 252px)'}}>
-                <ul className="slider__slides slides" style={{transform:`translateX(${currentIndex*(100/props.size)}%)`}}>
+                <ul className="slides" style={{
+                    transform:`translateX(calc(calc(calc(100% / ${props.size}) + 64px) * ${-currentIndex})`, //вычисляем смещение на слайд с учетом отступов 32px и текущего индекса 
+                    
+                }}>
                     {collection.map((element,i) => {
                         return (
                             <li 
-                                className={animate?`slides__slide2 slides__slide_animate2`:`slides__slide2`} 
                                 key={i}
                                 style={{
-                                    width:`calc(100%/${props.size})`
+                                    minWidth: '328px'
                                 }}
                             >
                                 {element}

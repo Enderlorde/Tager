@@ -6,6 +6,7 @@ import Action from './action/action.jsx';
 import Search from './search/search.jsx';
 
 import './header.sass';
+import './header-mobile.sass';
 
 const Header = (props) => {
     return (
@@ -18,7 +19,7 @@ const Header = (props) => {
 
             {props.options?<Options className="header__options" options={props.options} />:null}
 
-            {props.search?<Search className="header__search" />:null}
+            {props.search?<Search className="header__search" placeholder={props.placeholder}/>:null}
         </div>
     )
 }

@@ -246,7 +246,7 @@ const Task =  () => {
 
     return(
         <div className="task">
-            <Header title="Explore task" className="task__header" action={true} search={true}/>
+            <Header title="Explore task" className="task__header" action={true} search={true} placeholder="Search task"/>
 
             <Slider size={4} className='grid__slider' title="Time limit" collection={collectTasks()}/>
 

@@ -23,7 +23,7 @@ const Activity = (props) => {
 
     return (
         <div className={props.className?`activity ${props.className}`:'activity'}>
-            <Header small={true} title="Activity" options={[
+            <Header className="activity__header" small={true} title="Activity" options={[
                 {
                     value: 'td',
                     description: 'today'
@@ -51,6 +51,10 @@ const Activity = (props) => {
                     top: 16,
                     right: 16,
                     bottom: 16 
+                }}
+                style={{
+                    backgroundColor: "#ffffff",
+                    borderRadius: "10px"
                 }}
             > 
                 <XAxis 
