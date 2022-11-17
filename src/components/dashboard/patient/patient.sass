@@ -4,47 +4,58 @@ $font-inactive-color:#8E92BC
 $font-base-color: #ffffff
 
 .patient
-    padding: 20px
+    display: flex
+    flex-direction: column
+    justify-content: space-between
 
-    border-radius: 10px
+    padding: max(1.38vw, 20px)
+
+    border-radius: max(0.7vw, 10px)
 
     background-color: $bg-base-color
     color: $font-base-color
     
     &__title
-        margin-bottom: 20px
+        margin-bottom: max(1.4vw, 20px)
 
         text-transform: capitalize
         font-style: normal
         font-weight: 600
-        font-size: 16px
+        font-size: max(1.1vw, 16px)
         letter-spacing: -0.02em
 
     &__used
-        margin-bottom: 20px
+        margin-bottom: 1.4vw
 
         font-style: normal
         font-weight: 600
-        font-size: 32px
+        font-size: max(2.2vw, 32px)
 
         letter-spacing: -0.03em
 
-.meter
-    display: flex
-    justify-content: space-evenly
-    align-items: center
-    
-    &__course
-        margin-left: 20px
+    &__item    
+        display: flex
+        flex-direction: column
+        justify-content: space-evenly
+        align-items: flex-start
+        
+        &_orientation
+            &_horizontal
+                flex-direction: row
+                align-items: center
 
-.course
-    font-style: normal
-    font-weight: 500
-    font-size: 14px
-    letter-spacing: -0.02em
-    color: $font-inactive-color
+                gap: 20px
+
+    &__course
+        font-style: normal
+        font-weight: 500
+        letter-spacing: -0.02em
+        color: $font-inactive-color
 
     &__total
         font-weight: 600
-        font-size: 20px
+        font-size: max(1.4vw, 20px)
         color: $font-base-color
+
+    &__units
+        font-size: max(0.97vw, 14px)

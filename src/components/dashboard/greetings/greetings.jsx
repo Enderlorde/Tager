@@ -1,6 +1,7 @@
 import React from 'react';
 
 import './greetings.sass';
+import './greetings-mobile.sass';
 
 const Greetings = (props) => {
     return (

@@ -250,12 +250,20 @@ const Dashboard =  () => {
         return collection
     } 
 
+    const responsiveHack = () => {
+        console.log(window.innerWidth);
+        return window.innerWidth>375 ? <Header className="dashboard__header" title={<Greetings username="User" tagline="Let's finish you task today!" />} action={true}/>:<div>
+            <Header className="dashboard__header" title="" action={true}/>
+            <Greetings username="User" tagline="Let's finish you task today!" />
+        </div>
+    }
+
     return(
         <div className="dashboard">
             <div className="dashboard__general grid">
-                <Header className="dashboard__header" title={<Greetings username="User" tagline="Let's finish you task today!" />} action={true}/>
+                {responsiveHack()}
                     
-                <div className="grid__row grid__row_centered">  
+                <div className="grid__row">  
                     <Patient title='Running task' used={65} max={100} units='task' />
 
                     <Activity small={true} title='Activity' data={lcData}/>

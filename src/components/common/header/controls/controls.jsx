@@ -1,3 +1,8 @@
+/*
+className
+controls
+-content
+*/
 import React from 'react';
 
 import './controls.sass';

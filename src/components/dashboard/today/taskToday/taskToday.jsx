@@ -2,6 +2,7 @@ import React from 'react';
 
 import {Task as TaskCard} from '../../../common/cards/cards.jsx';
 import DotsIcon from './images/dots_icon.svg';
+import Header from '../../../common/header/header.jsx';
 
 import './taskToday.sass';
 
@@ -37,11 +38,7 @@ const TaskToday = () => {
 
     return(
         <div className="taskToday">
-            <div className="taskToday__header">
-                <h3>Task Today</h3>
-
-                <button><DotsIcon /></button>
-            </div>
+            <Header className="taskToday__header" small={true} title="task today" controls={[{content: <DotsIcon />}]} />
 
             <TaskCard 
                 className="taskToday__card"

@@ -6,16 +6,16 @@
     display: flex
     flex-direction: column
 
-    padding: 32px
+    padding: 2.22vw
 
-    border-radius: 10px
+    border-radius: 0.69vw
 
     background-color: #FFFFFF
 
     font-family: PlusJakartaSans, arial
     font-style: normal
     font-weight: 600
-    font-size: 14px
+    font-size: 0.97vw
     color: #141522
 
     overflow: hidden
@@ -25,20 +25,10 @@
         display: flex
         justify-content: space-between
 
-        margin-bottom: 30px
+        margin-bottom: 2.08vw
 
-        text-transform: capitalize
+        text-transform: capitalize // могут возникать проблемы
 
-        .navigation
-            border: 0
-
-            background-color: transparent
-
-            cursor: pointer
-
-            &_left
-                transform: scale(-1)
-        
 
     &__week
         display: flex
@@ -52,11 +42,11 @@
             flex-direction: column
             align-items: center
             
-            padding: 6px
+            padding: 0.42vw
 
-            width: 40px
+            width: 2.8vw
 
-            border-radius: 20px
+            border-radius: 1.4vw
 
             &_animate
                 animation-duration: 2s
@@ -79,8 +69,8 @@
                 display: flex
                 justify-content: center
 
-                width: 32px
-                height: 32px
+                width: 2.22vw
+                height: 2.22vw
 
                 border-radius: 50%
             
@@ -92,6 +82,17 @@
             &_active
                 .day__date
                     background-color: #546FFF
+
+.navigation
+    border: 0
+
+    background-color: transparent
+
+    font-size: 1.7vw
+    cursor: pointer
+
+    &_left
+        transform: scale(-1)
 
 @keyframes slideToLeft
     0%

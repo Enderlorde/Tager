@@ -5,21 +5,23 @@
 .taskToday
     background-color: #fff
 
-    border-radius: 10px
+    border-radius: 0.7vw
 
-    padding: 24px
+    padding: 1.7vw
 
     &__header
         display: flex
         justify-content: space-between
         align-items: center
 
-        margin-bottom: 20px
+        margin-bottom: 1.4vw
+
+        padding: 0
 
         font-family: PlusJakartaSans, arial
         font-style: normal
         font-weight: 600
-        font-size: 14px
+        font-size: 0.98vw
         letter-spacing: -0.02em
         color: #141522
 
@@ -35,86 +37,88 @@
         padding: 0
 
         img
-            height: 160px
+            height: 11.11vw
 
     hr
-        border: 1px solid #F5F5F7
+        border: 0.07vw solid #F5F5F7
         
-        margin-bottom: 32px
+        margin-bottom: 2.22vw
         
-    .detail
+.detail
+    display: flex
+    flex-direction: column
+
+    &__header
+        display: flex
+        justify-content: space-between
+        align-items: center
+
+        margin-bottom: 1.4vw
+
+        font-size: 1.11vw
+
+    &__theme
+        font-family: 'PlusJakartaSans'
+        font-style: normal
+        font-weight: 500
+        font-size: 0.84vw
+        letter-spacing: -0.02em
+        color: #54577A
+
+    &__content
         display: flex
         flex-direction: column
+        gap: 1.4vw
 
-        &__header
+        list-style: none
+
+        margin-bottom: 3.9vw
+
+        .task
             display: flex
-            justify-content: space-between
             align-items: center
+            gap: 0.84vw
 
-            margin-bottom: 20px
-
-        &__theme
             font-family: 'PlusJakartaSans'
             font-style: normal
             font-weight: 500
-            font-size: 12px
+            font-size: 0.98vw
             letter-spacing: -0.02em
-            color: #54577A
+            color: #141522
 
-        &__content
-            display: flex
-            flex-direction: column
-            gap: 20px
-
-            list-style: none
-
-            margin-bottom: 56px
-
-            .task
+            &__number
                 display: flex
+                justify-content: center
                 align-items: center
-                gap: 12px
 
-                font-family: 'PlusJakartaSans'
-                font-style: normal
-                font-weight: 500
-                font-size: 14px
-                letter-spacing: -0.02em
-                color: #141522
+                flex: none
 
-                &__number
-                    display: flex
-                    justify-content: center
-                    align-items: center
+                width: 2.5vw
+                height: 2.5vw
 
-                    flex: none
+                background-color: #F5F5F7
 
-                    width: 36px
-                    height: 36px
+                border-radius: 0.7vw
 
-                    background-color: #F5F5F7
+    &__spoiler
+        display: flex
+        justify-content: center
+        align-items: center
 
-                    border-radius: 10px
+        padding: 0.83vw
 
-        &__spoiler
-            display: flex
-            justify-content: center
-            align-items: center
+        width: 100%
 
-            padding: 12px
+        font-family: 'PlusJakartaSans'
+        font-style: normal
+        font-weight: 600
+        font-size: 0.98vw
+        letter-spacing: -0.02em
+        color: #ffffff
 
-            width: 100%
+        border: 0
+        border-radius: 0.7vw
 
-            font-family: 'PlusJakartaSans'
-            font-style: normal
-            font-weight: 600
-            font-size: 14px
-            letter-spacing: -0.02em
-            color: #ffffff
+        background-color: #546FFF
 
-            border: 0
-            border-radius: 10px
-
-            background-color: #546FFF
-
-            cursor: pointer
+        cursor: pointer

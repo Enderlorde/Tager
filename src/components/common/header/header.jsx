@@ -1,3 +1,13 @@
+/* 
+className
+small
+title
+controls
+action
+options
+search
+placeholder
+*/
 import React from 'react';
 
 import Controls from './controls/controls.jsx';

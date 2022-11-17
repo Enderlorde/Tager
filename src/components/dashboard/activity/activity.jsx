@@ -43,8 +43,8 @@ const Activity = (props) => {
             ]}/>
 
             <LineChart 
-                width={422}
-                height={130}
+                width={29.3 * window.innerWidth / 100}
+                height={9.1 * window.innerWidth / 100}
                 data={props.data}
                 margin={{
                     left: 16,
@@ -63,7 +63,7 @@ const Activity = (props) => {
                     tick={{
                         fill: "#141522"
                     }}
-                    fontSize={12}
+                    fontSize={0.8 * window.innerWidth / 100}
                 />
 
                 <YAxis
@@ -80,8 +80,8 @@ const Activity = (props) => {
                         top: 10,
                         bottom: 0
                     }}
-                    width={20}
-                    fontSize={12}
+                    width={1.4 * window.innerWidth / 100}
+                    fontSize={0.8 * window.innerWidth / 100}
                     textAnchor="middle"
                 />
                 
@@ -108,12 +108,12 @@ const Activity = (props) => {
                     type="monotone"
                     dataKey="uv"
                     stroke="#141522"
-                    strokeWidth={3}
+                    strokeWidth={0.2 * window.innerWidth / 100}
                     dot={false}
                     activeDot={{
                         stroke: "#546FFF",
-                        strokeWidth: 4,
-                        r: 8,
+                        strokeWidth: 0.2 * window.innerWidth / 100,
+                        r: 0.5 * window.innerWidth / 100,
                         fill: "#ffffff",
                         style: {
                             cursor: "pointer"

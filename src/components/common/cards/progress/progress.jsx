@@ -18,8 +18,7 @@ const Progress = (props) => {
             </div>
 
             <div className="progress__bar bar">
-                <div style={{ width: `${currentProgress}%` }} className="bar__value">
-                </div>
+                <div style={{ width: `${currentProgress}%` }} className="bar__value"></div>
             </div>
                 
         </div>
